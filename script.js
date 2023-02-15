@@ -9,6 +9,14 @@ let allFiltersChildren = document.querySelectorAll(".filter div");
 
 for (let i = 0; i < allFiltersChildren.length; i++) {
   allFiltersChildren[i].addEventListener("click", function (e) {
+    if(e.currentTarget.classList.contains("colour-selected")){
+      e.currentTarget.classList.remove("colour-selected");
+      loadTasks();
+      return;
+    }
+    else{
+      e.currentTarget.classList.add("colour-selected")
+    }
     let filterColor = e.currentTarget.classList[0];
     loadTasks(filterColor);
   });
